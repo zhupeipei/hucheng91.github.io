@@ -32,7 +32,7 @@
                         "icon": "http://img2.haoshiqi.net/ma0cd33e1abc0b492c26e3918ffff976e4.jpg",
                         "label": "小马哥",
                         "jump_type": 3,
-                        "jump_url": "https://apigatewayqa.sgmlink.com:13101/sgm_h5/index/H5_APP/CordovaHyb/CordovaPlugin/index.html",
+                        "jump_url": "https://hucheng91.github.io/xiaomao/index.html",
                         "client_type": 0,
                         "priority": 0,
                         "enabled": 1,
