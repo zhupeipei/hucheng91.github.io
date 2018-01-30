@@ -10,6 +10,7 @@
                         "client_type": 0,
                         "priority": 9,
                         "enabled": 1,
+                        "isShowFooter": false,
                         "version": "1.0"
                     },
                     {
