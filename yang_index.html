@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title id="title">客户授信平台</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <style>
+    body {
+
+      font-size: 2.5rem;
+
+    }
+    #a_btn{
+      background-color:#eb6001;
+      margin-top: 80%;
+      width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+      border: 1px solid #eb6001 ;
+      height: 80px;
+      padding-top: 20px;
+      font-size: 2rem;
+      color: #fff;
+    }
+    .a-header{
+      text-align: center;
+      background-color: #292b2c!important;
+      color: #fff;
+      height: 80px;
+      padding-top: 23px;
+    }
+    .card{
+      border: 0px;
+      margin-right: -10px;
+    }
+    .form-control{
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+<div class="card" id="card_1">
+  <h3 class="card-header" style="text-align: center;background-color: #292b2c!important;color: #fff">杨嘉莹宝宝定制</h3>
+  <div class="card-block">
+    <div class="form-group row">
+      <label for="example-text-input-userName" class="col-2 col-form-label">姓名</label>
+      <div class="col-10">
+        <input class="form-control" type="text"  id="example-text-input-userName">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-text-input-type" class="col-2 col-form-label">贷款类型</label>
+      <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input-type">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-text-input-money" class="col-2 col-form-label">金额</label>
+      <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input-money">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-text-input-money" class="col-2 col-form-label">卡号</label>
+      <div class="col-10">
+        <input class="form-control" type="text" id="example-text-input-card">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-text-input-money" class="col-2 col-form-label">是否显示title</label>
+      <div class="col-10">
+        <input class="form-control" type="checkbox" id="example-text-input-checkbox">
+      </div>
+    </div>
+    <a href="#" class=" btn btn-lg btn-primary" onclick="makeIt()" style="width: 30%;">生成</a>
+  </div>
+</div>
+<div class="card" id="card_2" style="display: none;">
+  <h3 class="card-header a-header" style=""><span class="glyphicon glyphicon-remove" aria-hidden="true" style="color: #fff"></span>申请登记</h3>
+  <div class="card-block" id="card-block-div">
+  </div>
+</div>
+<div class="card" id="card_3" style="display: none;">
+  <h3 class="card-header a-header" style=""><span class="glyphicon glyphicon-remove" aria-hidden="true" style="color: #fff"></span>申请登记</h3>
+  <div class="card-block" id="card-block-div_3">
+  </div>
+</div>
+<div class="row" style="height: 500px;"></div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.9.3/umd/popper.min.js" integrity="sha384-knhBOwpf8/28D6ygAjJeb0STNDZqfPbKaWQ8wIz/xgSc0xXwKsKhNype8fmfMka2" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script type="application/javascript">
+  function makeIt() {
+    var userName = $("#example-text-input-userName").val();
+    var type = $("#example-text-input-type").val();
+    var money = $("#example-text-input-money").val();
+    var card = $("#example-text-input-card").val();
+    var isShowTitle = $("#example-text-input-checkbox").prop("checked");
+    if(isShowTitle){
+      $("#title").text("平安陆金所客户授信平台");
+    }
+    var p1 = $("<p class='card-text'></p>");
+    var p2 = $("<p class='card-text'></p>");
+    var p3 = $("<p class='ard-text'></p>");
+    var p4 = $("<p class='card-text' style='padding-top: 100px;'>(特别说明： 请以最终审批结果为准，谢谢！)</p>");
+    var a = $(" <a  id='a_btn' class='btn btn-primary'' onclick='makeCard()'>继续申请</a>")
+    p1.text("客户"+userName+"为我司授信客户，预授信信息如下：");
+    p2.text("【"+type+"】");
+    p3.text(type+"预审批额度为"+money+"元！");
+    $("#card-block-div").append(p1).append(p2).append(p3).append(p4).append(a);
+    $("#card_1").hide();
+    $("#card_2").show();
+  };
+  function makeCard(){
+    $("#card_1").hide();
+    $("#card_2").hide();
+    $("#card_3").show();
+    var userName = $("#example-text-input-userName").val();
+    var type = $("#example-text-input-type").val();
+    var money = $("#example-text-input-money").val();
+    var card = $("#example-text-input-card").val();
+    var isShowTitle = $("#example-text-input-checkbox").prop("checked");
+    if(isShowTitle){
+      $("#title").text("平安陆金所客户授信平台");
+    }
+    var p1 = $("<p class='card-text'></p>");
+    var p2 = $("<p class='card-text'></p>");
+    var p3 = $("<p class='ard-text'></p>");
+    var p4 = $("<p class='card-text' style='padding-top: 100px;'>(特别说明： 请以最终审批结果为准，谢谢！)</p>");
+    var a = $(" <a  id='a_btn' class='btn btn-success step3'  onclick='getStep4()'>待放款</a>")
+    p1.text("客户"+userName+"审批额度："+money+"元！");
+    p2.text("【"+type+"】");
+    p3.text("卡号【"+card+"】");
+    $("#card-block-div_3").append(p1).append(p2).append(p3).append(a);
+
+  }
+  function getStep4(argument) {
+    $("#card_3").find(".step3").html("超时取消").css({"background-color": "#eee", "border": "1px solid #eee","color":"#292b2c" });
+    // body...   :  #eb6001 ;
+  }
+  function back() {
+    $("#card-block-div").html("");
+    $("#card_2").hide();
+    $("#card_3").hide();
+    $("#card_1").show();
+  }
+  $(function () {
+    console.log($)
+  })
+</script>
+</body>
+</html>
